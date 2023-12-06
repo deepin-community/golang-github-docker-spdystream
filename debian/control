@@ -1,15 +1,27 @@
-Source: template-repository
-Section: unknown
+Source: golang-github-docker-spdystream
+Maintainer: Debian Go Packaging Team <team+pkg-go@tracker.debian.org>
+Uploaders: Dmitry Smirnov <onlyjob@debian.org>,
+           Tim Potter <tpot@hpe.com>,
+           Anthony Fok <foka@debian.org>,
+Section: golang
+Testsuite: autopkgtest-pkg-go
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Build-Depends: debhelper-compat (= 13),
+               dh-golang,
+               golang-any,
+Standards-Version: 4.5.1
+Vcs-Browser: https://salsa.debian.org/go-team/packages/golang-github-docker-spdystream
+Vcs-Git: https://salsa.debian.org/go-team/packages/golang-github-docker-spdystream.git
+Homepage: https://github.com/moby/spdystream
+Rules-Requires-Root: no
+XS-Go-Import-Path: github.com/moby/spdystream,
+                   github.com/docker/spdystream,
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: golang-github-docker-spdystream-dev
+Pre-Depends: ${misc:Pre-Depends},
+Provides: golang-github-moby-spdystream-dev,
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends},
+Description: multiplexed stream library using spdy
+ SpdyStream is a multiplexed stream library using spdy.
